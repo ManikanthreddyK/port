@@ -1,0 +1,101 @@
+.orbital-stage {
+  perspective: 1200px;
+}
+
+.orbital-preserve {
+  transform-style: preserve-3d;
+}
+
+.orbital-spin-slow {
+  animation: orbital-spin 84s linear infinite;
+}
+
+.orbital-spin-rev {
+  animation: orbital-spin 62s linear infinite reverse;
+}
+
+.orbital-spin-fast {
+  animation: orbital-spin 46s linear infinite;
+}
+
+.orbital-pulse-core {
+  animation: orbital-pulse 4.5s ease-in-out infinite;
+}
+
+.orbital-dash-anim-slow {
+  animation: orbital-dash 30s linear infinite;
+}
+
+.orbital-dash-anim-fast {
+  animation: orbital-dash 20s linear infinite reverse;
+}
+
+.intro-pulse-dot {
+  animation: intro-dot-pulse 2.4s ease-in-out infinite;
+}
+
+.intro-bounce-arrow {
+  animation: intro-arrow-bounce 2.2s ease-in-out infinite;
+}
+
+@keyframes orbital-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes orbital-pulse {
+  0%,
+  100% {
+    opacity: 0.65;
+    transform: scale(0.92);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.08);
+  }
+}
+
+@keyframes orbital-dash {
+  to {
+    stroke-dashoffset: -120;
+  }
+}
+
+@keyframes intro-dot-pulse {
+  0%,
+  100% {
+    opacity: 0.4;
+    transform: scale(0.9);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.2);
+  }
+}
+
+@keyframes intro-arrow-bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(3px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .orbital-spin-slow,
+  .orbital-spin-rev,
+  .orbital-spin-fast,
+  .orbital-pulse-core,
+  .orbital-dash-anim-slow,
+  .orbital-dash-anim-fast,
+  .intro-pulse-dot,
+  .intro-bounce-arrow {
+    animation: none;
+  }
+}

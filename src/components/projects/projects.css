@@ -1,0 +1,53 @@
+.project-card-grid {
+  background-image:
+    linear-gradient(rgb(244 241 234 / 4.5%) 1px, transparent 1px),
+    linear-gradient(90deg, rgb(244 241 234 / 4.5%) 1px, transparent 1px);
+  background-size: 28px 28px;
+  background-position: 0 0;
+  transition: background-position 700ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.group:hover .project-card-grid {
+  background-position: 14px 10px;
+}
+
+.project-card-sheen {
+  background: linear-gradient(
+    115deg,
+    transparent 36%,
+    rgb(244 241 234 / 7%) 50%,
+    transparent 64%
+  );
+  background-size: 220% 100%;
+  background-position: 140% 0;
+  opacity: 0;
+  transition:
+    opacity 500ms cubic-bezier(0.22, 1, 0.36, 1),
+    background-position 900ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.group:hover .project-card-sheen {
+  opacity: 1;
+  background-position: -40% 0;
+}
+
+.project-card-motif {
+  transition: transform 700ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.group:hover .project-card-motif {
+  transform: translate3d(4px, -3px, 0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .project-card-grid,
+  .project-card-sheen,
+  .project-card-motif,
+  .group:hover .project-card-grid,
+  .group:hover .project-card-sheen,
+  .group:hover .project-card-motif {
+    transition: none;
+    animation: none;
+    transform: none;
+  }
+}

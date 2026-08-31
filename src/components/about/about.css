@@ -1,0 +1,59 @@
+.about-portrait-stage {
+  perspective: 1100px;
+}
+
+.about-portrait-img {
+  filter: grayscale(1) contrast(1.08) brightness(0.92);
+  transform: translate3d(var(--mx, 0px), var(--my, 0px), 0) scale(1.12);
+  transition: transform 800ms cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: transform;
+}
+
+.group:hover .about-portrait-img {
+  transform: translate3d(var(--mx, 0px), var(--my, 0px), 0) scale(1.18);
+}
+
+.about-portrait-sheen {
+  background: linear-gradient(
+    118deg,
+    transparent 38%,
+    rgb(244 241 234 / 8%) 50%,
+    transparent 62%
+  );
+  background-size: 220% 100%;
+  background-position: 130% 0;
+  opacity: 0;
+  transition:
+    opacity 500ms cubic-bezier(0.22, 1, 0.36, 1),
+    background-position 900ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.group:hover .about-portrait-sheen {
+  opacity: 1;
+  background-position: -30% 0;
+}
+
+.about-portrait-grain {
+  opacity: 0.16;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.55'/%3E%3C/svg%3E");
+}
+
+.about-backdrop-type {
+  font-family: var(--font-display);
+  font-weight: 800;
+  letter-spacing: -0.07em;
+  line-height: 0.78;
+  color: rgb(244 241 234 / 4.5%);
+  user-select: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .about-portrait-img,
+  .group:hover .about-portrait-img,
+  .about-portrait-sheen,
+  .group:hover .about-portrait-sheen {
+    transition: none;
+    transform: none;
+  }
+}
