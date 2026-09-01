@@ -168,7 +168,7 @@ export function IntroExperience({ onEnter, isEntered }: IntroExperienceProps) {
             className="relative z-10 flex items-center justify-between"
           >
             <span className="font-mono text-[10px] tracking-[0.32em] text-accent uppercase">
-              Selected Works & Exploration
+              Selected Works &amp; Exploration
             </span>
             <button
               type="button"

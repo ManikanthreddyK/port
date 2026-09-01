@@ -6,63 +6,67 @@
   transform-style: preserve-3d;
 }
 
-.orbital-spin-slow {
-  animation: orbital-spin 84s linear infinite;
+/* Subtly expanding thin contact ripple */
+.fingertip-ripple-1 {
+  animation: fingertip-ripple-expand-1 0.85s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
-.orbital-spin-rev {
-  animation: orbital-spin 62s linear infinite reverse;
+.fingertip-ripple-2 {
+  animation: fingertip-ripple-expand-2 1.1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
-.orbital-spin-fast {
-  animation: orbital-spin 46s linear infinite;
+@keyframes fingertip-ripple-expand-1 {
+  0% {
+    transform: translate(-50%, -50%) scale(0.15);
+    opacity: 0.95;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(3);
+    opacity: 0;
+  }
 }
 
-.orbital-pulse-core {
-  animation: orbital-pulse 4.5s ease-in-out infinite;
+@keyframes fingertip-ripple-expand-2 {
+  0% {
+    transform: translate(-50%, -50%) scale(0.1);
+    opacity: 0.75;
+  }
+  50% {
+    opacity: 0.35;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(4.2);
+    opacity: 0;
+  }
 }
 
-.orbital-dash-anim-slow {
-  animation: orbital-dash 30s linear infinite;
+/* Ambient idle breathing glow at fingertip */
+.ambient-glow-pulse {
+  animation: ambient-pulse 6s ease-in-out infinite;
 }
 
-.orbital-dash-anim-fast {
-  animation: orbital-dash 20s linear infinite reverse;
+@keyframes ambient-pulse {
+  0%,
+  100% {
+    opacity: 0.3;
+    transform: translate(-50%, -50%) scale(0.92);
+  }
+  50% {
+    opacity: 0.65;
+    transform: translate(-50%, -50%) scale(1.08);
+  }
 }
 
+/* Intro Screen Accents */
 .intro-pulse-dot {
   animation: intro-dot-pulse 2.4s ease-in-out infinite;
 }
 
 .intro-bounce-arrow {
   animation: intro-arrow-bounce 2.2s ease-in-out infinite;
-}
-
-@keyframes orbital-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@keyframes orbital-pulse {
-  0%,
-  100% {
-    opacity: 0.65;
-    transform: scale(0.92);
-  }
-  50% {
-    opacity: 1;
-    transform: scale(1.08);
-  }
-}
-
-@keyframes orbital-dash {
-  to {
-    stroke-dashoffset: -120;
-  }
 }
 
 @keyframes intro-dot-pulse {
@@ -88,12 +92,9 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .orbital-spin-slow,
-  .orbital-spin-rev,
-  .orbital-spin-fast,
-  .orbital-pulse-core,
-  .orbital-dash-anim-slow,
-  .orbital-dash-anim-fast,
+  .fingertip-ripple-1,
+  .fingertip-ripple-2,
+  .ambient-glow-pulse,
   .intro-pulse-dot,
   .intro-bounce-arrow {
     animation: none;
